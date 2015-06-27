@@ -1,3 +1,5 @@
+package "python3-pip"
+
 bash "install Jupyter" do
   user "root"
   cwd "/home/ubuntu"
@@ -10,15 +12,22 @@ bash "install Jupyter" do
     rm spark-1.4.0-bin-hadoop2.6.tgz
     echo "export AWS_ACCESS_KEY_ID=#{node[:aws][:access]}" >> .bash_profile
     echo "export AWS_SECRET_ACCESS_KEY=#{node[:aws][:secret]}" >> .bash_profile
+    pip3 install ipython
+    pip3 install zmq
+    pip3 install pyzmq
+    pip3 install jsonschema
+
     git clone https://github.com/jupyter/jupyterhub.git
     cd jupyterhub
-    apt-get install python3-pip
     pip3 install -r requirements.txt
     pip3 install .
+    cd ..
     wget https://oss.sonatype.org/content/repositories/snapshots/com/github/alexarchambault/jupyter/jupyter-scala-cli_2.10.5/0.2.0-SNAPSHOT/jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
     tar xf jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
-    cd jupyter-scala_2.10.5-0.2.0-SNAPSHOT
+    rm jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
+    cd jupyter-scala_2.10.5-0.2.0-SNAPSHOT/bin
     ./jupyter-scala
+    cd ../..
     jupyterhub --port #{node[:jupyter][:port]}
   EOH
 end
