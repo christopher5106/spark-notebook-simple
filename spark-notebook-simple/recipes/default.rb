@@ -19,3 +19,8 @@ bash "install Jupyter" do
   jupyterhub --port #{node[:jupyter][:port]
   EOH
 end
+
+user node[:jupyter][:user] do
+  supports :manage_home => true
+  password node[:jupyter][:password]}
+end

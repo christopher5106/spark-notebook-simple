@@ -17,6 +17,4 @@ cookbook 'sbt-extras'
 cookbook 'vim'
 cookbook 'minitest-handler', git: 'git://github.com/btm/minitest-handler-cookbook.git'
 
-cookbook 'python'
-
 cookbook 'nodejs'

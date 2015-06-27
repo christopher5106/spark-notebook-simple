@@ -25,7 +25,9 @@ Create an Opsworks stack named "Spark" with
 		"ssh_key":"-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAA....\n-----END RSA PRIVATE KEY-----"
 	},
 	"jupyter":{
-		"port":"80"
+		"user":"tom",
+		"password":"passwd",
+		"port":8000
 	}
 }
 ```
@@ -33,8 +35,6 @@ where ssh_key is the private key pair `sparkclusterkey` created for EC2, new lin
 
 It's better to create a specific user, with AmazonEC2FullAccess policy and use its access keys rather than the root keys of your account.
 
-Create a custom layer named "spark-notebook" in your stack.
-
-Add the recipes `apt`, `ark`, `java`, `scala`,`sbt-extras`, `nodejs` and `spark-notebook-simple`.
+Create a custom layer named "spark-notebook" in your stack. Add the recipes `apt`, `ark`, `java`, `scala`,`sbt-extras`, `nodejs` and `spark-notebook-simple` to your layer.
 
 Start an instance. That's it !
