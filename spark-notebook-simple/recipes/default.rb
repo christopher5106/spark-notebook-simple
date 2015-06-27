@@ -15,6 +15,10 @@ bash "install Jupyter" do
     apt-get install python3-pip
     pip3 install -r requirements.txt
     pip3 install .
+    wget https://oss.sonatype.org/content/repositories/snapshots/com/github/alexarchambault/jupyter/jupyter-scala-cli_2.10.5/0.2.0-SNAPSHOT/jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
+    tar xf jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
+    cd jupyter-scala_2.10.5-0.2.0-SNAPSHOT
+    ./jupyter-scala
     jupyterhub --port #{node[:jupyter][:port]
   EOH
 end
