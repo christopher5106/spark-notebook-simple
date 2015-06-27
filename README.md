@@ -23,10 +23,13 @@ Create an Opsworks stack named "Spark" with
 			"access":"ACCESS_KEY_HERE",
 			"secret":"SECRET_KEY_HERE",
 			"ssh_key":"-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAA....\n-----END RSA PRIVATE KEY-----"
+		},
+		"jupyter":{
+			"port":"80"
 		}
 	}
 ```
-where ssh_key is the private key pair `sparkclusterkey` created for EC2, new lines replaced with \n characters
+where ssh_key is the private key pair `sparkclusterkey` created for EC2, new lines replaced with \n characters.
 
 It's better to create a specific user, with AmazonEC2FullAccess policy and use its access keys rather than the root keys of your account.
 
