@@ -29,6 +29,6 @@ It's better to create a specific user, with AmazonEC2FullAccess policy and use i
 
 Create a custom layer named "spark-notebook" in your stack.
 
-Add the recipe `spark-notebook-simple`.
+Add the recipes `apt`, `ark`, `java`, `scala`,`sbt-extras`,`spark-notebook-simple`.
 
 Start an instance. That's it !
