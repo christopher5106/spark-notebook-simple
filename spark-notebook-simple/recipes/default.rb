@@ -25,5 +25,5 @@ end
 
 user node[:jupyter][:user] do
   supports :manage_home => true
-  password node[:jupyter][:password]}
+  password node[:jupyter][:password]
 end
