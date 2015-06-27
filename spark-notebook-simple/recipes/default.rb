@@ -19,7 +19,7 @@ bash "install Jupyter" do
     git clone https://github.com/jupyter/jupyterhub.git
     cd jupyterhub
     pip3 install -r requirements.txt
-    pip3 install .
+    pip3 install /home/ubuntu/jupyterhub
     /usr/local/bin/jupyterhub --port #{node[:jupyter][:port]}
   EOH
 end
@@ -37,6 +37,6 @@ bash "install Jupyter-scala" do
     tar xf jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
     rm jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
     cd jupyter-scala_2.10.5-0.2.0-SNAPSHOT/bin
-    ./jupyter-scala 
+    ./jupyter-scala
   EOH
 end
