@@ -19,7 +19,7 @@ bash "install Jupyter" do
     tar xf jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
     cd jupyter-scala_2.10.5-0.2.0-SNAPSHOT
     ./jupyter-scala
-    jupyterhub --port #{node[:jupyter][:port]
+    jupyterhub --port #{node[:jupyter][:port]}
   EOH
 end
 
